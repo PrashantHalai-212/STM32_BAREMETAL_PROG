@@ -1,0 +1,20 @@
+#include "stm32c0xx.h"
+
+
+void tim2_1hz_init(void){
+
+	//ENABLE CLOCK ACCESS TO TIM2
+	RCC->APBENR1 |= (1U << 1);
+
+	//SET THE PRESCALER VALUE
+	TIM3->PSC = (1600 - 1); //(16000000/1600) = 10000
+
+	//AUTORELOAD VALUE
+	TIM3->ARR = 10000 - 1; //(10000/10000) = 1
+
+	//CLEAR THE COUNTER
+	TIM3->CNT = 0;
+
+	//ENABLE TIMER
+	TIM3->CR1 |= (1U << 0);
+}

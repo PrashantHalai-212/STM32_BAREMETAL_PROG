@@ -1,0 +1,6 @@
+../Src/main.c:14:17:compute_uart_bd	1
+../Src/main.c:18:13:uart_set_baudrate	1
+../Src/main.c:22:6:uart2_write	2
+../Src/main.c:30:6:uart2_tx_init	1
+../Src/main.c:61:5:__io_putchar	1
+../Src/main.c:68:5:main	1
