@@ -1,0 +1,5 @@
+C:/Users/Prashant/Desktop/Desktop Folder/STM32/chip_headers/CMSIS/Include/core_cm0plus.h:741:22:__NVIC_EnableIRQ	16	static,ignoring_inline_asm
+../Src/adc.c:18:6:PAl_adc_Interrupt_init	8	static
+../Src/adc.c:46:6:pal_adc_init	8	static
+../Src/adc.c:68:6:start_conversion	8	static
+../Src/adc.c:76:10:adc_read	8	static

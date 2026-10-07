@@ -1,0 +1,34 @@
+#include "exti.h"
+
+
+void PC13_exti_init(){
+
+	//DISABLE GLOBAL INTERRUPT
+	__disable_irq();
+
+	//ENABLE CLOCK ACCESS FOR GPIOC
+	RCC->IOPENR |= (1U << 2);
+
+	GPIOC->MODER &= ~(1U << 26);
+	GPIOC->MODER &= ~(1U << 27);
+
+	//ENABLE CLOCK ACCESS TO SYSCNFG
+	RCC->APBENR2 |= (1U << 0);
+
+	//SLECT PORTC FOR EXTI13
+	EXTI->EXTICR[3] = (0x02 << 8);
+
+	//UNMASK EXTI13
+	EXTI->IMR1 |= (1U << 13);
+
+	//SELECT FALLING EDGE TRIGGER
+	EXTI->FTSR1 |= (1U << 13);
+
+	//ENABLE EXTI LINE IN NVIC
+	NVIC_EnableIRQ(EXTI4_15_IRQn);
+
+	//GLOBAL INTERRUPT ENABLE
+	__enable_irq();
+}
+
+
